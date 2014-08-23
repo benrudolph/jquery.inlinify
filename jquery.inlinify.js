@@ -6,8 +6,26 @@ $.fn.inlinify = function() {
   // nodes should be children and actual node itself
   nodes = $.merge(this.find('*'), this)
 
-  for(i = sheets.length - 1; i >= 0; i--){
-    rules = sheets[i].cssRules || sheets[i].rules;
+  // No sheets so just return
+  if (!sheets)
+    return;
+
+  for(i = sheets.length - 1; i >= 0; i--) {
+    try {
+      rules = sheets[i].cssRules || sheets[i].rules;
+    } catch (err) {
+      // Skip over external stylesheets in FF
+      if (err.name === 'SecurityError') {
+        console.log('Skipping cross-domain stylesheet');
+        continue;
+      } else {
+        throw err;
+      }
+    }
+
+    // No rules for sheet so continue
+    if (!rules)
+      continue;
 
     for (j = 0, len = rules.length; j < len; j++) {
 
