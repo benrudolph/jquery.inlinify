@@ -6,4 +6,6 @@ Simple jQuery plugin to inline your css.
 $('.foo').inlinify()
 ```
 
-Inlines your CSS styles to the selected elements *children*.
+Inlines your CSS styles to the selected elements.
+
+Note: Will not apply cross-domain stylesheets for Firefox (see https://github.com/tysonmatanich/elementQuery/issues/10)
