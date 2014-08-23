@@ -1,0 +1,15 @@
+#mydiv {
+  color: red;
+}
+
+#mydiv:hover {
+  background-color: blue;
+}
+
+#mydiv .mysecond {
+  color: yellow;
+}
+
+[data-myattr="div"] {
+  color: blue;
+}
