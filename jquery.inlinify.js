@@ -1,9 +1,10 @@
 $.fn.inlinify = function() {
-  var rules, i, j, len, sheets, children, parent;
+  var rules, i, j, len, sheets, nodes, parent;
 
   sheets = document.styleSheets;
-  children = this.find('*');
 
+  // nodes should be children and actual node itself
+  nodes = $.merge(this.find('*'), this)
 
   for(i = sheets.length - 1; i >= 0; i--){
     rules = sheets[i].cssRules || sheets[i].rules;
@@ -17,7 +18,7 @@ $.fn.inlinify = function() {
       $ele = $(rules[j].selectorText);
 
       $ele.each(function (i, elem) {
-        if (children.index(elem) !== -1) {
+        if (nodes.index(elem) !== -1) {
           elem.style.cssText = rules[j].style.cssText + elem.style.cssText;
         }
       });
