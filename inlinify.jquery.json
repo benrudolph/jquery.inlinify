@@ -1,7 +1,7 @@
 {
     "name": "inlinify",
     "title": "jquery.inlinify.js",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "description": "Creates inline styles from your CSS sheets.",
     "keywords": [
         "inline",
