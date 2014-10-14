@@ -13,3 +13,14 @@
 [data-myattr="div"] {
   color: blue;
 }
+
+#inlined {
+  color: blue;
+}
+
+#inlined {
+  background-color: rgb(10,10,10);
+}
+#inlined {
+  background-color: rgb(100,100,100);
+}

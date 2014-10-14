@@ -26,4 +26,19 @@ QUnit.test('should not apply styles to parent', function (assert) {
   assert.equal($('div[style="color: yellow;"]').length, 1);
 });
 
+QUnit.test('Inline styles should take precedence over non-inlined styles', function (assert) {
+  $('#inlined').inlinify()
+  styles = $('#inlined')[0].style.cssText
+
+  assert.ok(styles.indexOf('color: red') !== -1)
+});
+
+QUnit.test('Consecutive styles should give precedence to latter', function (assert) {
+  $('#inlined').inlinify()
+  styles = $('#inlined')[0].style.cssText
+  console.log(styles);
+
+  assert.ok(styles.indexOf('background-color: rgb(100, 100, 100)') !== -1)
+});
+
 

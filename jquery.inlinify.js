@@ -27,7 +27,7 @@ $.fn.inlinify = function() {
     if (!rules)
       continue;
 
-    for (j = 0, len = rules.length; j < len; j++) {
+    for (j = rules.length - 1; j >= 0; j--) {
 
       // Skip if hover style or no selectText
       if (!rules[j].selectorText || rules[j].selectorText.indexOf("hover") !== -1)
@@ -37,7 +37,7 @@ $.fn.inlinify = function() {
 
       $ele.each(function (i, elem) {
         if (nodes.index(elem) !== -1) {
-          elem.style.cssText = rules[j].style.cssText + elem.style.cssText;
+          elem.style.cssText = rules[j].style.cssText +  elem.style.cssText;
         }
       });
     }
